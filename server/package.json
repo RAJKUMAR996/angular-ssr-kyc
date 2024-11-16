@@ -1,0 +1,29 @@
+{
+  "name": "kyc-server",
+  "version": "1.0.0",
+  "description": "kyc-moongoose server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx tsx --env-file=.env --watch  index.ts"
+  },
+  "keywords": [
+    "kyc",
+    "moongoose",
+    "server"
+  ],
+  "type": "module",
+  "author": "Ramkumar",
+  "license": "ISC",
+  "dependencies": {
+    "@decorators/express": "^3.0.0",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.0",
+    "nodeman": "^1.1.2",
+    "typescript": "^5.6.3"
+  }
+}
