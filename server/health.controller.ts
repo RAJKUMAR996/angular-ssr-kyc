@@ -1,5 +1,5 @@
 import { Controller, Get } from '@decorators/express';
-@Controller("/health")
+@Controller("/api/health")
 export class HealthController {
 
     @Get("/")
