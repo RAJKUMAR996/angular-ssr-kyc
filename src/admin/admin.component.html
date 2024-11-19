@@ -1,0 +1,54 @@
+<header>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Admin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/admin">Home</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+					<input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+<table class="mt-2 table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Name</th>
+			<th scope="col">Email</th>
+			<th scope="col">Position</th>
+			<th scope="col">Is Active</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (user of users$ | async; track user.firstName; let i = $index) {
+			<tr>
+				<th scope="row">{{ i + 1 }}</th>
+				<td>
+					<ngb-highlight [result]="user.firstName" [term]="filter.value" />
+				</td>
+				<td><ngb-highlight [result]="user.email" [term]="filter.value" /></td>
+				<td><ngb-highlight [result]="user.position" [term]="filter.value" /></td>
+				<td>{{user.isActive}}</td>
+			</tr>
+		} @empty {
+			<tr>
+				<td colspan="4" style="text-align: center">No medical representative found</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<app-user-edit></app-user-edit>
+
+</div>
