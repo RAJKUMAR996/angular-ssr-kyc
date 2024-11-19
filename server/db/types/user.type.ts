@@ -1,23 +1,35 @@
 import { ObjectId } from "mongoose";
 
-export interface IUser {
-    userId: ObjectId;
-    email: string;
-    username: string;
-    mobile: string;
-    mobilecode: string;
-    role: string;
-    firstname: string;
-    lastname: string;
-    passwordHash: string;
-    contactPhone: string;
-    createdDate: Date;
-    createdBy: ObjectId;
-    modifiedBy: string;
-    modifiedDate: Date;
-    isActive: boolean;
-    isLocked: boolean;
-    activatedDate: Date;
-    lockedDate: Date;
-    deactivateDate: Date;
+export class User {
+    private _password!: string;
+    public userId!: ObjectId;
+    public email!: string;
+    public username!: string;
+    public mobile!: number;
+    public mobilecode!: string;
+    public gender: 'male' | 'female' | 'trans' | 'unknown' = 'unknown';
+    public profilePicture!: string;
+    public dob!: Date;
+    public role!: string;
+    public firstname?: string;
+    public lastname?: string;
+    public passwordHash!: string;
+    public emailVerified?: boolean;
+    public mobileVerified?: boolean;
+    public contactPhone!: string;
+    public createdDate!: Date;
+    public createdBy!: ObjectId;
+    public modifiedBy?: string;
+    public modifiedDate?: Date;
+    public isActive!: boolean;
+    public isLocked?: boolean;
+    public activatedDate?: Date;
+    public lockedDate?: Date;
+    public userVerified?: boolean
+    public deactivateDate?: Date;
+    public loginConditions?: {
+        loginAttempt: number;
+        loginFailedDateTime: Date;
+        nextLoginDateTime: Date;
+    };
 }
