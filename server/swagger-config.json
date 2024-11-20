@@ -1,0 +1,10 @@
+{
+    "swagger": {
+        "outputDirectory": "./dist",
+        "entryFile": "./index.ts",
+        "decoratorConfig": {
+            "useBuildIn": true,
+            "useLibrary": ["typescript-rest", "@decorators/express"]
+        }
+    }
+}

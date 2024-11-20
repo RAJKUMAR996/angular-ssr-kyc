@@ -1,7 +1,6 @@
-import { ObjectId } from "mongoose";
+import { Document, ObjectId } from "mongoose";
 
-export interface Role {
-    roleId: ObjectId;
+export interface Role extends Document {
     name: string;
     isActive: boolean;
     allowAsLogin: boolean;

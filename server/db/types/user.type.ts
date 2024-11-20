@@ -1,28 +1,29 @@
-import { ObjectId } from "mongoose";
+import { Document, ObjectId } from "mongoose";
 
-export class User {
+export class User extends Document {
+    public static COLLECTION_NAME = "User";
     private _password!: string;
-    public userId!: ObjectId;
     public email!: string;
     public username!: string;
-    public mobile!: number;
-    public mobilecode!: string;
     public gender: 'male' | 'female' | 'trans' | 'unknown' = 'unknown';
-    public profilePicture!: string;
-    public dob!: Date;
+    public profilePicture!: string;    
     public role!: string;
-    public firstname?: string;
-    public lastname?: string;
     public passwordHash!: string;
-    public emailVerified?: boolean;
-    public mobileVerified?: boolean;
     public contactPhone!: string;
     public createdDate!: Date;
-    public createdBy!: ObjectId;
+    public isActive: boolean = true;
+
+    public dob?: Date;
+    public isLocked?: boolean = false;
+    public mobile?: number;
+    public mobilecode?: string;    
+    public firstname?: string;
+    public lastname?: string;
+    public createdBy?: ObjectId;
+    public emailVerified?: boolean;
+    public mobileVerified?: boolean;
     public modifiedBy?: string;
     public modifiedDate?: Date;
-    public isActive!: boolean;
-    public isLocked?: boolean;
     public activatedDate?: Date;
     public lockedDate?: Date;
     public userVerified?: boolean

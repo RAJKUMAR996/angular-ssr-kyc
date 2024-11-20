@@ -1,6 +1,6 @@
-import { ObjectId } from "mongoose";
+import { Document, ObjectId } from "mongoose";
 
-export interface IPatient {
+export interface IPatient extends Document {
     patientId: ObjectId;
     patientName: string;
     mobile: string;
