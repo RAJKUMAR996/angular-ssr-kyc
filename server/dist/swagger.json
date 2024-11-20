@@ -1,0 +1,14 @@
+{
+	"definitions": {},
+	"info": {
+		"description": "kyc-moongoose server",
+		"license": {
+			"name": "ISC"
+		},
+		"title": "kyc-server",
+		"version": "1.0.0"
+	},
+	"paths": {},
+	"swagger": "2.0",
+	"securityDefinitions": {}
+}
